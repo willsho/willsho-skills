@@ -1,0 +1,17 @@
+{
+  "skill_name": "transcript-to-article",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我把这段访谈 transcript 整理成一篇中文深度解读文章，保存为 markdown 文件。\n\n访谈文件路径：/Users/willwang/code/article-visualization/data/Cat Wu.txt\n\n输出文件保存到：{output_dir}/cat-wu-article.md",
+      "expected_output": "一篇结构完整的中文深度解读文章，包含：YAML frontmatter、开场段落、要点速览、分节正文（每节有核心观点/引语/编者注）、Q&A速览、编辑手记。文章要有批判性视角，不只是翻译整理。",
+      "files": ["/Users/willwang/code/article-visualization/data/Cat Wu.txt"]
+    },
+    {
+      "id": 2,
+      "prompt": "帮我把这段访谈 transcript 整理成一篇中文深度解读文章，保存为 markdown 文件。\n\n访谈文件路径：/Users/willwang/code/article-visualization/data/Andrej Karpathy.txt\n\n输出文件保存到：{output_dir}/karpathy-article.md",
+      "expected_output": "一篇结构完整的中文深度解读文章，包含：YAML frontmatter、开场段落、要点速览、分节正文（每节有核心观点/引语/编者注）、Q&A速览、编辑手记。需要覆盖 Vibe Coding、Software 3.0、锯齿状智能、Agentic Engineering 等核心概念。",
+      "files": ["/Users/willwang/code/article-visualization/data/Andrej Karpathy.txt"]
+    }
+  ]
+}

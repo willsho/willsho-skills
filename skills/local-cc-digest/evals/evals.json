@@ -1,0 +1,23 @@
+{
+  "skill_name": "local-cc-digest",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我回顾一下今天 Claude 帮我做了哪些事情，生成工作日报",
+      "expected_output": "运行脚本提取今日 session 数据，然后生成一份按项目分组的工作日报，每个 session 用简洁的动词短语描述，包含汇总信息",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "这周 Claude 帮我干了什么？总结一下",
+      "expected_output": "运行脚本提取本周 session 数据（--range week），按项目或按天分组，生成工作回顾报告，语言简洁，突出做了什么事",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "帮我生成上周的工作周报，主要是回顾 Claude 帮我做了哪些事",
+      "expected_output": "运行脚本提取上周数据（计算上周日期范围），生成结构化周报，按项目分组，每项工作有简洁描述",
+      "files": []
+    }
+  ]
+}
