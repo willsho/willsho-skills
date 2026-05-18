@@ -1,0 +1,23 @@
+{
+  "skill_name": "youtube-transcript",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我获取这个 YouTube 视频的字幕：https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "expected_output": "调用 Worker API 获取字幕，输出完整文本和语言信息",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "这个视频有中文字幕吗？youtu.be/jNQXAC9IVRw",
+      "expected_output": "尝试获取中文字幕，如不存在则展示可用语言列表",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "帮我总结一下这个 YouTube 视频的内容：https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "expected_output": "先获取字幕，然后基于字幕内容给出摘要",
+      "files": []
+    }
+  ]
+}
