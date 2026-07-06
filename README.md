@@ -7,11 +7,13 @@
 | Skill | 功能 | 配套文件 |
 |-------|------|----------|
 | [consumer-brand-growth](skills/consumer-brand-growth/) | 给消费品牌做增长诊断与方案，覆盖渠道、复购、新品、护城河等问题 | `references/` |
+| [gpt-image-gen](skills/gpt-image-gen/) | 用 apimart.ai 的 GPT-Image-2 生成图片（文生图、图生图），支持 15 种比例与 1K/2K/4K 分辨率，最多 16 张参考图 | `scripts/`, `references/` |
 | [explain-diff-html](skills/explain-diff-html/) | 将代码变更 / diff / 分支 / PR 生成富交互的 HTML 讲解（背景、直觉、代码走读、测验） | - |
 | [ip-flywheel](skills/ip-flywheel/) | 给 IP、角色、内容公司做飞轮诊断、商业化分析和打法方案 | `references/`, `evals/` |
 | [local-cc-digest](skills/local-cc-digest/) | 扫描本地 Claude Code session，生成日报、周报或阶段回顾 | `scripts/`, `evals/` |
 | [mole-cli](skills/mole-cli/) | 用 Mole (`mo`) macOS CLI 清理磁盘、卸载应用、分析存储、优化与监控系统 | - |
 | [podwise-transcript](skills/podwise-transcript/) | 通过 Podwise CLI 获取 YouTube、播客或本地音视频的 transcript、summary、chapters 等内容 | - |
+| [shangtou-changwen](skills/shangtou-changwen/) | 把平铺直叙的中文草稿改写成「上头毒舌磕学家」式网络长帖文风，可套用于追星、剧评、热点锐评、CP 分析等 | `references/` |
 | [transcript-to-article](skills/transcript-to-article/) | 将访谈、播客或视频文字稿整理成中文深度解读文章 | `evals/` |
 | [youtube-transcript](skills/youtube-transcript/) | 获取 YouTube 视频字幕 / transcript，并按语言优先级兜底 | `scripts/`, `evals/` |
 

@@ -1,2 +1,10 @@
 .DS_Store
 **/.DS_Store
+
+# 本地配置可能含密钥，只提交 *.example.* 示例文件
+config.json
+**/config.json
+
+# Python 缓存
+__pycache__/
+*.pyc
