@@ -1,0 +1,39 @@
+{
+  "skill_name": "match-my-writing-style",
+  "note": "主观类 skill（文风），不做量化断言，用真实/合成样本跑 Learn→Apply，人工判断输出像不像。样本为合成的虚构作者「老陈」（DIY/maker 博主），声音鲜明可复现，便于判断档案是否抓到 tell、输出是否复现声音。",
+  "evals": [
+    {
+      "id": 0,
+      "name": "learn-voice",
+      "prompt": "这三篇是我平时写的东西，你学一下我的文风，存成一份档案。",
+      "expected_output": "一份具体、带原文证据的文风档案：抓到老陈的招牌 tell（撂结论开头、括号插话、咱/整/这玩意儿、破折号补充、省略号、自问自答、自嘲、就这样/完事儿收尾、几乎无感叹号、技术词随手翻译），每条挂原句；反特征列出通用 AI 味。避免空形容词。",
+      "files": [
+        "skills/match-my-writing-style-workspace/inputs/sample-1-调平.md",
+        "skills/match-my-writing-style-workspace/inputs/sample-2-烙铁.md",
+        "skills/match-my-writing-style-workspace/inputs/sample-3-NAS.md"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "apply-new-topic",
+      "prompt": "这三篇是我平时写的东西，你先学一下我的风格，然后用我的口吻写一段 200 字左右的，讲讲我最近入手的一台二手激光雕刻机，重点吐槽一下它的排烟和配套软件难用。",
+      "expected_output": "一段新话题（激光雕刻机）上的文字，从第一句就有老陈的手感（撂结论、括号插话、破折号、自嘲、就这样收尾），但不编造具体的虚假经历/参数（voice≠content）；不把某个癖好用到漫画化。",
+      "files": [
+        "skills/match-my-writing-style-workspace/inputs/sample-1-调平.md",
+        "skills/match-my-writing-style-workspace/inputs/sample-2-烙铁.md",
+        "skills/match-my-writing-style-workspace/inputs/sample-3-NAS.md"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "apply-register-shift",
+      "prompt": "这三篇是我平时写的东西，学一下我的风格。然后帮我写一封给房东的邮件：厨房下水管漏水了，泡了地板，要求他这周内派人来修。",
+      "expected_output": "一封语域得体的房东邮件——保留可辨认的本人痕迹（直率、结论先行、干脆），但不硬塞 maker 黑话（咱/整/这玩意儿）到正式邮件里，也不漫画化。测试语域适配与反漫画化两条原则。",
+      "files": [
+        "skills/match-my-writing-style-workspace/inputs/sample-1-调平.md",
+        "skills/match-my-writing-style-workspace/inputs/sample-2-烙铁.md",
+        "skills/match-my-writing-style-workspace/inputs/sample-3-NAS.md"
+      ]
+    }
+  ]
+}

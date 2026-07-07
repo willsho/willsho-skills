@@ -7,10 +7,16 @@
 | Skill | 功能 | 配套文件 |
 |-------|------|----------|
 | [consumer-brand-growth](skills/consumer-brand-growth/) | 给消费品牌做增长诊断与方案，覆盖渠道、复购、新品、护城河等问题 | `references/` |
+| [deploy-html-cloudflare](skills/deploy-html-cloudflare/) | 把 HTML 页面或静态站点目录通过 Cloudflare Pages Direct Upload 部署上线，返回可访问 URL，含敏感信息扫描与结构化 JSON 结果 | `scripts/`, `evals/` |
+| [deploy-html-vercel](skills/deploy-html-vercel/) | 一键把静态 HTML 页面或站点目录部署到 Vercel，返回可访问线上 URL，含 token 脱敏与密钥泄露扫描 | `scripts/`, `evals/` |
 | [gpt-image-gen](skills/gpt-image-gen/) | 用 apimart.ai 的 GPT-Image-2 生成图片（文生图、图生图），支持 15 种比例与 1K/2K/4K 分辨率，最多 16 张参考图 | `scripts/`, `references/` |
 | [explain-diff-html](skills/explain-diff-html/) | 将代码变更 / diff / 分支 / PR 生成富交互的 HTML 讲解（背景、直觉、代码走读、测验） | - |
+| [focus-my-energy](skills/focus-my-energy/) | 把一天 / 一周的待办对齐到精力节律，按高 / 中 / 低精力窗口安排深度工作与杂事 | `evals/` |
+| [get-more-perspectives](skills/get-more-perspectives/) | 在有分量且答案不唯一的决策拍板前，先给出 3-5 个真正不同的视角，铺开选项与权衡 | `evals/` |
 | [ip-flywheel](skills/ip-flywheel/) | 给 IP、角色、内容公司做飞轮诊断、商业化分析和打法方案 | `references/`, `evals/` |
+| [khazix-writer](skills/khazix-writer/) | 以「数字生命卡兹克」的文风撰写、续写或扩写公众号长文 | `references/` |
 | [local-cc-digest](skills/local-cc-digest/) | 扫描本地 Claude Code session，生成日报、周报或阶段回顾 | `scripts/`, `evals/` |
+| [match-my-writing-style](skills/match-my-writing-style/) | 从你的真实写作样本学习文风，存成可复用的「文风档案」并套用到新写作 | `references/`, `evals/` |
 | [mole-cli](skills/mole-cli/) | 用 Mole (`mo`) macOS CLI 清理磁盘、卸载应用、分析存储、优化与监控系统 | - |
 | [podwise-transcript](skills/podwise-transcript/) | 通过 Podwise CLI 获取 YouTube、播客或本地音视频的 transcript、summary、chapters 等内容 | - |
 | [shangtou-changwen](skills/shangtou-changwen/) | 把平铺直叙的中文草稿改写成「上头毒舌磕学家」式网络长帖文风，可套用于追星、剧评、热点锐评、CP 分析等 | `references/` |

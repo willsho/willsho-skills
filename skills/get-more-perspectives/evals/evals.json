@@ -1,0 +1,53 @@
+{
+  "skill_name": "get-more-perspectives",
+  "evals": [
+    {
+      "id": 0,
+      "name": "tech-monorepo-vs-polyrepo",
+      "prompt": "我们是个 6 人的后端小团队,现在有 4 个 Go 服务分在 4 个 git 仓库里,CI 各配各的,共享代码靠一个内部 module 手动 tag 发版,经常版本对不上。我在纠结要不要合并成一个 monorepo。老板担心 monorepo 以后不好拆、权限也不好管;我自己是觉得现在跨仓库改一个共享逻辑太痛了。到底该不该合?帮我想清楚。",
+      "expected_output": "3-5 个真正不同的视角(如求稳/维护者视角、开发体验视角、红队/反对派视角、未来可扩展性视角等),每个视角有明确主张和取舍,最后给出一张决策地图:共识、真正的分歧根源、岔路口(取决于用户更看重什么),但不直接替用户拍板。",
+      "files": [],
+      "assertions": [
+        "Produces 3-5 distinct perspectives (not fewer, not padded past 5)",
+        "Perspectives are genuinely distinct — each optimizes for a different thing / could reach a different conclusion, not the same take reworded",
+        "Includes at least one red-team / dissenting perspective that attacks the current front-runner option",
+        "Each perspective states what it optimizes for AND names its weak spot or what would change its mind",
+        "Ends with a decision map: consensus zone + genuine conflict with its root cause + a crux ('if you weight X over Y ...')",
+        "Does NOT hand down a single 'I recommend X' verdict — leaves the decision to the user",
+        "Output is in Chinese (matches the user's language)"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "career-startup-offer",
+      "prompt": "我现在在一家大厂做产品经理,干了 4 年,稳定但有点温水煮青蛙。上周拿到一个早期创业公司的 offer,是他们第一个正式 PM,给的现金比现在低 25%,但有 1.5% 的期权。我 33 岁,有房贷,老婆刚怀孕。心里很痒但也很怕。该去吗?",
+      "expected_output": "3-5 个真正会分叉的视角(如财务/风险视角、职业成长视角、家庭/伴侣视角、'一年后/五年后的自己'时间尺度视角、红队'这个 offer 哪里在骗你'视角等),铺开权衡但不替用户下结论,最后交给用户一个标好岔路口的决策地图。",
+      "files": [],
+      "assertions": [
+        "Produces 3-5 distinct perspectives (not fewer, not padded past 5)",
+        "Perspectives are genuinely distinct — each optimizes for a different thing / could reach a different conclusion, not the same take reworded",
+        "Includes at least one red-team / dissenting perspective that attacks the current front-runner option",
+        "Each perspective states what it optimizes for AND names its weak spot or what would change its mind",
+        "Ends with a decision map: consensus zone + genuine conflict with its root cause + a crux ('if you weight X over Y ...')",
+        "Does NOT hand down a single 'I recommend X' verdict — leaves the decision to the user",
+        "Output is in Chinese (matches the user's language)"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "business-pricing-model",
+      "prompt": "我做了个给小团队用的 SaaS 工具,现在按用户数收费(每人每月 $10)。用户一直抱怨说他们只是偶尔用一下,按人头收太贵,好几个都因为这个流失了。我在考虑改成按用量计费(比如按调用次数),但又怕收入变得不可预测、也怕现有付费用户账单波动了不高兴。到底要不要换定价模式?",
+      "expected_output": "3-5 个不同视角(如现有付费用户视角、增长/获客视角、财务可预测性视角、竞品/市场视角、红队'换了会不会两头不讨好'视角等),把真正的张力(可预测收入 vs 降低使用门槛)摆清楚,给决策地图而非直接推荐。",
+      "files": [],
+      "assertions": [
+        "Produces 3-5 distinct perspectives (not fewer, not padded past 5)",
+        "Perspectives are genuinely distinct — each optimizes for a different thing / could reach a different conclusion, not the same take reworded",
+        "Includes at least one red-team / dissenting perspective that attacks the current front-runner option",
+        "Each perspective states what it optimizes for AND names its weak spot or what would change its mind",
+        "Ends with a decision map: consensus zone + genuine conflict with its root cause + a crux ('if you weight X over Y ...')",
+        "Does NOT hand down a single 'I recommend X' verdict — leaves the decision to the user",
+        "Output is in Chinese (matches the user's language)"
+      ]
+    }
+  ]
+}

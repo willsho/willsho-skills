@@ -8,3 +8,6 @@ config.json
 # Python 缓存
 __pycache__/
 *.pyc
+
+# skill-creator 评估/基准的临时工作目录（非 skill 本体）
+skills/*-workspace/

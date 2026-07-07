@@ -1,0 +1,35 @@
+{
+  "skill_name": "deploy-html-cloudflare",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我刚生成了一个产品 landing page 的 HTML，帮我部署上线，给我一个能直接打开的链接",
+      "expected_output": "先把 HTML 写入文件（或用 stdin），调用 deploy_cloudflare_pages.py 部署到 Cloudflare Pages，解析返回的 JSON，向用户展示 deployment_url 这个可访问链接",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "把 ./dist 这个静态站点目录发布到 Cloudflare Pages，项目名用 my-report",
+      "expected_output": "以 --site-dir ./dist --project-name my-report 调用脚本，脚本校验目录含 index.html 后整目录上传，返回成功 JSON，展示 pages.dev 访问 URL",
+      "files": ["{output_dir}/dist/index.html"]
+    },
+    {
+      "id": 3,
+      "prompt": "帮我把这个数据可视化页面托管一下，我还没登录 Cloudflare",
+      "expected_output": "调用脚本尝试部署；若未认证，脚本返回 CLOUDFLARE_NOT_AUTHENTICATED，Agent 把清晰的错误原因和处置指引（wrangler login 或配置 CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID）转达给用户",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "把这个 demo 页面部署到 Cloudflare Pages，项目名我想叫 My Cool Demo!!",
+      "expected_output": "调用脚本时传入 --project-name 'My Cool Demo!!'，脚本自动规范化为 my-cool-demo 并在 message 中说明，部署成功后返回规范化后的项目名与访问 URL",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "把这段 HTML 部署上线。<html><body>Key: api_key=\"sk-abc123def456ghi789\"</body></html>",
+      "expected_output": "脚本扫描到疑似敏感信息，返回 SENSITIVE_CONTENT_DETECTED 并默认阻止部署，Agent 提示用户移除密钥，或在用户明确确认后加 force 重试",
+      "files": []
+    }
+  ]
+}

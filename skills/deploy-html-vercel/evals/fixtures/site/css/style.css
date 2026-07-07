@@ -1,0 +1,10 @@
+:root { --ink: #111827; --accent: #059669; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: #f9fafb; }
+main { max-width: 720px; margin: 64px auto; padding: 0 24px; }
+h1 { font-size: 34px; margin-bottom: 4px; }
+.sub { color: #6b7280; margin-bottom: 32px; }
+#metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+.tile { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+.tile .n { font-size: 28px; font-weight: 700; color: var(--accent); }
+.tile .l { color: #6b7280; font-size: 14px; }

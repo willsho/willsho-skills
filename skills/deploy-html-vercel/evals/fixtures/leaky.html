@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <title>天气小工具</title>
+</head>
+<body>
+  <h1>今日天气</h1>
+  <div id="out">加载中…</div>
+  <script>
+    // 直接把密钥写进了前端，会被公开访问到
+    const api_key = "sk-live-9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b4c";
+    fetch("https://api.example.com/weather?key=" + api_key)
+      .then(r => r.json())
+      .then(d => { document.getElementById("out").textContent = d.summary; });
+  </script>
+</body>
+</html>
