@@ -23,6 +23,8 @@
 | [transcript-to-article](skills/transcript-to-article/) | 将访谈、播客或视频文字稿整理成中文深度解读文章 | `evals/` |
 | [youtube-transcript](skills/youtube-transcript/) | 获取 YouTube 视频字幕 / transcript，并按语言优先级兜底 | `scripts/`, `evals/` |
 
+> **来源：** `explain-diff-html` 改编自 Geoffrey Litt 的 [gist](https://gist.github.com/geoffreylitt/a29df1b5f9865506e8952488eac3d524)。延伸阅读：[Understanding is the new bottleneck](https://www.geoffreylitt.com/2026/07/02/understanding-is-the-new-bottleneck.html)。
+
 ## 目录结构
 
 ```text
