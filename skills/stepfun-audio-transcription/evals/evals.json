@@ -1,0 +1,23 @@
+{
+  "skill_name": "stepfun-audio-transcription",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "把附件里的 interview.m4a 转成文字，原始文字稿保存到同目录，访谈主题是「对话 Yuri：StepFun 与多模态 Agent」。",
+      "expected_output": "检查 ffmpeg 与 STEPFUN_API_KEY，调用随 skill 附带的脚本转写本地音频，使用标题自动生成热词，并把未擅自添加说话人或时间戳的纯文字稿保存为同目录 .txt 文件。",
+      "files": ["interview.m4a"]
+    },
+    {
+      "id": 2,
+      "prompt": "请把这个公开播客音频直链转成文字：https://example.com/episodes/ai-founder.mp3。专有名词有阶跃星辰、StepAudio、具身智能，输出到 ./outputs/ai-founder.txt。",
+      "expected_output": "调用脚本处理公开 HTTP(S) 媒体直链，通过重复的 --hotword 传入三个专有名词，明确输出到指定路径，并在下载、鉴权或 API 失败时提供可操作的错误信息。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "把 meeting.mp4 里的讲话提取出来，再根据文字稿整理一份会议摘要。不要改写原始识别结果。",
+      "expected_output": "先把本地视频音轨转为 16 kHz 单声道 MP3，并按默认每 600 秒一片的时间策略调用 StepFun ASR；保存独立的原始纯文字稿后再生成会议摘要。摘要与原始稿分开保存，原始识别内容不被润色或覆盖。",
+      "files": ["meeting.mp4"]
+    }
+  ]
+}
