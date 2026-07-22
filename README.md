@@ -35,8 +35,11 @@
 |-------|------|----------|
 | [explain-diff-html](skills/explain-diff-html/) | 将代码变更 / diff / 分支 / PR 生成富交互的 HTML 讲解（背景、直觉、代码走读、测验） | - |
 | [khazix-writer](skills/khazix-writer/) | 以「数字生命卡兹克」的文风撰写、续写或扩写公众号长文 | `references/` |
+| [zh-humanizer-literary](skills/zh-humanizer-literary/) | 给中文草稿去 AI 味、减少模板感并增强文采，同时保留事实、判断与作者声音 | `agents/`, `references/`, `evals/` |
 
-> **来源：** `explain-diff-html` 改编自 Geoffrey Litt 的 [gist](https://gist.github.com/geoffreylitt/a29df1b5f9865506e8952488eac3d524)。延伸阅读：[Understanding is the new bottleneck](https://www.geoffreylitt.com/2026/07/02/understanding-is-the-new-bottleneck.html)。
+> **来源：**
+> - `explain-diff-html` 改编自 Geoffrey Litt 的 [gist](https://gist.github.com/geoffreylitt/a29df1b5f9865506e8952488eac3d524)。延伸阅读：[Understanding is the new bottleneck](https://www.geoffreylitt.com/2026/07/02/understanding-is-the-new-bottleneck.html)。
+> - `zh-humanizer-literary` 来自 [nihe0909/zh-humanizer-literary](https://github.com/nihe0909/zh-humanizer-literary)，由好事引力以 MIT License 发布；许可证见 [skills/zh-humanizer-literary/LICENSE](skills/zh-humanizer-literary/LICENSE)。
 
 ## 目录结构
 
@@ -44,6 +47,7 @@
 skills/
 └── <skill-name>/
     ├── SKILL.md          # skill 定义，必须包含 YAML frontmatter
+    ├── agents/           # 客户端展示与调用配置，可选
     ├── evals/
     │   └── evals.json    # 评估测试用例，可选
     ├── references/       # 长参考材料或案例库，可选
