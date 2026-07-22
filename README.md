@@ -23,6 +23,7 @@
 | [deploy-html-vercel](skills/deploy-html-vercel/) | 一键把静态 HTML 页面或站点目录部署到 Vercel，返回可访问线上 URL，含 token 脱敏与密钥泄露扫描 | `scripts/`, `evals/` |
 | [focus-my-energy](skills/focus-my-energy/) | 把一天 / 一周的待办对齐到精力节律，按高 / 中 / 低精力窗口安排深度工作与杂事 | `evals/` |
 | [get-more-perspectives](skills/get-more-perspectives/) | 在有分量且答案不唯一的决策拍板前，先给出 3-5 个真正不同的视角，铺开选项与权衡 | `evals/` |
+| [interview-coach](skills/interview-coach/) | 提供面试前准备、模拟面试、面后复盘与长期能力积累，把岗位线索和真实经历转化为针对性训练 | `references/`, `evals/` |
 | [ip-flywheel](skills/ip-flywheel/) | 给 IP、角色、内容公司做飞轮诊断、商业化分析和打法方案 | `references/`, `evals/` |
 | [match-my-writing-style](skills/match-my-writing-style/) | 从你的真实写作样本学习文风，存成可复用的「文风档案」并套用到新写作 | `references/`, `evals/` |
 | [shangtou-changwen](skills/shangtou-changwen/) | 把平铺直叙的中文草稿改写成「上头毒舌磕学家」式网络长帖文风，可套用于追星、剧评、热点锐评、CP 分析等 | `references/` |
