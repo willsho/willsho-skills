@@ -1,0 +1,45 @@
+{
+  "skill_name": "link-project-skills",
+  "evals": [
+    {
+      "id": 1,
+      "name": "link-all-project-skills",
+      "prompt": "把 /Users/me/code/my-skill-repo 这个项目里 skills 目录下的所有技能同时装给 Codex 和 Claude，用软链接，后面我改源码时两边都要自动生效。",
+      "expected_output": "触发本 skill，使用 link_skills.py 并通过 --repo 指向给定仓库；默认链接到 ~/.agents/skills 和 ~/.claude/skills；最后根据脚本 SUMMARY 如实报告结果。",
+      "files": [],
+      "assertions": [
+        "使用本 skill 自带的 scripts/link_skills.py，而不是手写一串 ln 命令",
+        "命令通过 --repo 指向用户给出的仓库根目录",
+        "未传入自定义 --target 时使用 ~/.agents/skills 和 ~/.claude/skills 两个默认目标",
+        "根据脚本输出报告 created、unchanged、repaired 或 conflicts，不编造成功"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "link-selected-skills",
+      "prompt": "这个技能仓库里我只想同步 youtube-transcript 和 podwise-transcript 到 Claude/Codex，其他 skill 先别动。",
+      "expected_output": "触发本 skill，调用脚本并分别传入两个 --skill 参数，只处理指定技能，不触碰其余技能。",
+      "files": [],
+      "assertions": [
+        "调用 link_skills.py",
+        "命令包含 --skill youtube-transcript 和 --skill podwise-transcript",
+        "没有链接未被用户点名的技能",
+        "目标仍同时覆盖 Agents/Codex 与 Claude 的技能目录"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "preserve-conflicting-installation",
+      "prompt": "再同步一次所有 skills。如果目标目录里已经有同名内容，安全第一，别把我手工安装的东西删了。",
+      "expected_output": "触发本 skill 并正常重复运行；正确链接被识别为 unchanged；同名真实文件/目录及指向其他来源的链接被保留并报告冲突，不擅自使用 --repair。",
+      "files": [],
+      "assertions": [
+        "调用 link_skills.py 重复同步",
+        "没有擅自添加 --repair",
+        "正确的现有链接被当作 unchanged，而不是报错或重建",
+        "同名真实文件或目录被保留",
+        "若存在冲突，回复明确说明同步并非全部成功"
+      ]
+    }
+  ]
+}
