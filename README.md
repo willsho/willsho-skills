@@ -7,6 +7,7 @@
 | Skill | 功能 | 配套文件 |
 |-------|------|----------|
 | [gpt-image-gen](skills/gpt-image-gen/) | 用 apimart.ai 的 GPT-Image-2 生成图片（文生图、图生图），支持 15 种比例与 1K/2K/4K 分辨率，最多 16 张参考图 | `scripts/`, `references/` |
+| [link-project-skills](skills/link-project-skills/) | 把仓库内的 skills 批量软链接到 Agents/Codex 与 Claude 的用户级技能目录 | `scripts/`, `evals/` |
 | [local-cc-digest](skills/local-cc-digest/) | 扫描本地 Claude Code session，生成日报、周报或阶段回顾 | `scripts/`, `evals/` |
 | [mole-cli](skills/mole-cli/) | 用 Mole (`mo`) macOS CLI 清理磁盘、卸载应用、分析存储、优化与监控系统 | - |
 | [podwise-transcript](skills/podwise-transcript/) | 通过 Podwise CLI 获取 YouTube、播客或本地音视频的 transcript、summary、chapters 等内容 | - |
@@ -23,6 +24,7 @@
 | [deploy-html-vercel](skills/deploy-html-vercel/) | 一键把静态 HTML 页面或站点目录部署到 Vercel，返回可访问线上 URL，含 token 脱敏与密钥泄露扫描 | `scripts/`, `evals/` |
 | [focus-my-energy](skills/focus-my-energy/) | 把一天 / 一周的待办对齐到精力节律，按高 / 中 / 低精力窗口安排深度工作与杂事 | `evals/` |
 | [get-more-perspectives](skills/get-more-perspectives/) | 在有分量且答案不唯一的决策拍板前，先给出 3-5 个真正不同的视角，铺开选项与权衡 | `evals/` |
+| [interview-coach](skills/interview-coach/) | 提供面试前准备、模拟面试、面后复盘与长期能力积累，把岗位线索和真实经历转化为针对性训练 | `references/`, `evals/` |
 | [ip-flywheel](skills/ip-flywheel/) | 给 IP、角色、内容公司做飞轮诊断、商业化分析和打法方案 | `references/`, `evals/` |
 | [match-my-writing-style](skills/match-my-writing-style/) | 从你的真实写作样本学习文风，存成可复用的「文风档案」并套用到新写作 | `references/`, `evals/` |
 | [shangtou-changwen](skills/shangtou-changwen/) | 把平铺直叙的中文草稿改写成「上头毒舌磕学家」式网络长帖文风，可套用于追星、剧评、热点锐评、CP 分析等 | `references/` |
@@ -33,8 +35,11 @@
 |-------|------|----------|
 | [explain-diff-html](skills/explain-diff-html/) | 将代码变更 / diff / 分支 / PR 生成富交互的 HTML 讲解（背景、直觉、代码走读、测验） | - |
 | [khazix-writer](skills/khazix-writer/) | 以「数字生命卡兹克」的文风撰写、续写或扩写公众号长文 | `references/` |
+| [zh-humanizer-literary](skills/zh-humanizer-literary/) | 给中文草稿去 AI 味、减少模板感并增强文采，同时保留事实、判断与作者声音 | `agents/`, `references/`, `evals/` |
 
-> **来源：** `explain-diff-html` 改编自 Geoffrey Litt 的 [gist](https://gist.github.com/geoffreylitt/a29df1b5f9865506e8952488eac3d524)。延伸阅读：[Understanding is the new bottleneck](https://www.geoffreylitt.com/2026/07/02/understanding-is-the-new-bottleneck.html)。
+> **来源：**
+> - `explain-diff-html` 改编自 Geoffrey Litt 的 [gist](https://gist.github.com/geoffreylitt/a29df1b5f9865506e8952488eac3d524)。延伸阅读：[Understanding is the new bottleneck](https://www.geoffreylitt.com/2026/07/02/understanding-is-the-new-bottleneck.html)。
+> - `zh-humanizer-literary` 来自 [nihe0909/zh-humanizer-literary](https://github.com/nihe0909/zh-humanizer-literary)，由好事引力以 MIT License 发布；许可证见 [skills/zh-humanizer-literary/LICENSE](skills/zh-humanizer-literary/LICENSE)。
 
 ## 目录结构
 
@@ -42,11 +47,43 @@
 skills/
 └── <skill-name>/
     ├── SKILL.md          # skill 定义，必须包含 YAML frontmatter
+    ├── agents/           # 客户端展示与调用配置，可选
     ├── evals/
     │   └── evals.json    # 评估测试用例，可选
     ├── references/       # 长参考材料或案例库，可选
     └── scripts/          # 配套脚本，可选
 ```
+
+## 安装与同步 Skills
+
+仓库内置了 [`link-project-skills`](skills/link-project-skills/)：它会扫描
+`skills/*/SKILL.md`，并用符号链接让 Codex / Agents 与 Claude 共用仓库里的同一份源码。
+修改源 skill 后，不需要重复复制文件。
+
+把仓库内的全部 skills 安装到用户级目录 `~/.agents/skills` 和
+`~/.claude/skills`：
+
+```bash
+python3 skills/link-project-skills/scripts/link_skills.py
+```
+
+只把引导技能安装到当前项目的 `.agents/skills` 和 `.claude/skills`：
+
+```bash
+python3 skills/link-project-skills/scripts/link_skills.py \
+  --skill link-project-skills \
+  --target .agents/skills \
+  --target .claude/skills
+```
+
+常用选项：
+
+- `--dry-run`：只预览，不修改文件系统；
+- `--skill <name>`：只同步指定 skill，可重复传入；
+- `--repo <path>`：从另一个 skill 仓库读取；
+- `--repair`：替换指向错误来源的旧符号链接，但仍不会覆盖真实文件或目录。
+
+脚本可安全重复执行：正确的现有链接会标记为 `UNCHANGED`；遇到同名真实内容时会保留原内容、报告冲突并返回非零状态。
 
 ## SKILL.md 格式
 
@@ -140,6 +177,9 @@ git status --short
 
 # 运行 local-cc-digest 示例
 python3 skills/local-cc-digest/scripts/summarize_sessions.py --range week --json
+
+# 测试 skills 符号链接脚本
+python3 skills/link-project-skills/scripts/test_link_skills.py
 
 # 运行 StepFun 音频转写的离线测试
 python3 skills/stepfun-audio-transcription/scripts/test_transcribe_audio.py
