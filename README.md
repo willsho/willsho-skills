@@ -7,6 +7,7 @@
 | Skill | 功能 | 配套文件 |
 |-------|------|----------|
 | [gpt-image-gen](skills/gpt-image-gen/) | 用 apimart.ai 的 GPT-Image-2 生成图片（文生图、图生图），支持 15 种比例与 1K/2K/4K 分辨率，最多 16 张参考图 | `scripts/`, `references/` |
+| [link-project-skills](skills/link-project-skills/) | 把仓库内的 skills 批量软链接到 Agents/Codex 与 Claude 的用户级技能目录 | `scripts/`, `evals/` |
 | [local-cc-digest](skills/local-cc-digest/) | 扫描本地 Claude Code session，生成日报、周报或阶段回顾 | `scripts/`, `evals/` |
 | [mole-cli](skills/mole-cli/) | 用 Mole (`mo`) macOS CLI 清理磁盘、卸载应用、分析存储、优化与监控系统 | - |
 | [podwise-transcript](skills/podwise-transcript/) | 通过 Podwise CLI 获取 YouTube、播客或本地音视频的 transcript、summary、chapters 等内容 | - |
@@ -48,6 +49,37 @@ skills/
     ├── references/       # 长参考材料或案例库，可选
     └── scripts/          # 配套脚本，可选
 ```
+
+## 安装与同步 Skills
+
+仓库内置了 [`link-project-skills`](skills/link-project-skills/)：它会扫描
+`skills/*/SKILL.md`，并用符号链接让 Codex / Agents 与 Claude 共用仓库里的同一份源码。
+修改源 skill 后，不需要重复复制文件。
+
+把仓库内的全部 skills 安装到用户级目录 `~/.agents/skills` 和
+`~/.claude/skills`：
+
+```bash
+python3 skills/link-project-skills/scripts/link_skills.py
+```
+
+只把引导技能安装到当前项目的 `.agents/skills` 和 `.claude/skills`：
+
+```bash
+python3 skills/link-project-skills/scripts/link_skills.py \
+  --skill link-project-skills \
+  --target .agents/skills \
+  --target .claude/skills
+```
+
+常用选项：
+
+- `--dry-run`：只预览，不修改文件系统；
+- `--skill <name>`：只同步指定 skill，可重复传入；
+- `--repo <path>`：从另一个 skill 仓库读取；
+- `--repair`：替换指向错误来源的旧符号链接，但仍不会覆盖真实文件或目录。
+
+脚本可安全重复执行：正确的现有链接会标记为 `UNCHANGED`；遇到同名真实内容时会保留原内容、报告冲突并返回非零状态。
 
 ## SKILL.md 格式
 
@@ -141,6 +173,9 @@ git status --short
 
 # 运行 local-cc-digest 示例
 python3 skills/local-cc-digest/scripts/summarize_sessions.py --range week --json
+
+# 测试 skills 符号链接脚本
+python3 skills/link-project-skills/scripts/test_link_skills.py
 
 # 运行 StepFun 音频转写的离线测试
 python3 skills/stepfun-audio-transcription/scripts/test_transcribe_audio.py
